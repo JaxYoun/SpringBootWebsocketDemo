@@ -14,8 +14,8 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class MessageResource {
 
-    @MessageMapping("/hello")
-    @SendTo("/topic/greetings")
+    @MessageMapping("/hello")  //监听客户端消息
+    @SendTo("/topic/greetings")  //发布主题
     public Greeting greeting(HelloMessage message) throws Exception {
         Thread.sleep(1000); // simulated delay
         return new Greeting("Hello, " + message.getName() + "!");
